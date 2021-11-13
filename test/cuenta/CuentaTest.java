@@ -53,11 +53,11 @@ public class CuentaTest {
         
         try{
             cuenta.Retirada(retirada);
+            System.out.println("TestRetirada "+cuenta.getCuenta()+": " + cuenta.getSaldo());
         }catch(Exception e){
             System.out.println(e.getMessage());
             //fail("The test case is a prototype.");
-        }
-        System.out.println("Retirada "+cuenta.getCuenta()+": " + cuenta.getSaldo());
+        }        
     }
     
     @Test
@@ -67,10 +67,10 @@ public class CuentaTest {
         
         try{
             cuenta.Retirada(retirada);
-            System.out.println("Retirada "+cuenta.getCuenta()+": "+cuenta.getSaldo());
+            System.out.println("TestRetirada_Negativa "+cuenta.getCuenta()+": "+cuenta.getSaldo());
             //fail("The test case is a prototype.");
         }catch(Exception e){           
-            System.out.println("TestRetirada_Negativo: Nose puede retirar cantidades negativas");
+            System.out.println("TestRetirada_Negativa: No puede retirar cantidades negativas");
         }       
     }
     
@@ -81,9 +81,9 @@ public class CuentaTest {
         
         try{
             cuenta.Retirada(retirada);
-            System.out.println("Retirada "+cuenta.getCuenta()+": "+cuenta.getSaldo());
+            System.out.println("TestRetirada_Insuficiente "+cuenta.getCuenta()+": "+cuenta.getSaldo());
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("TestRetirada_Insuficiente: La retirada supera al saldo");
             //fail("The test case is a prototype.");
         }       
     }
@@ -98,7 +98,7 @@ public class CuentaTest {
         double ingreso = 100.0;
         try{
             cuenta.Ingreso(ingreso);
-            System.out.println("Ingreso "+cuenta.getCuenta()+": "+cuenta.getSaldo());
+            System.out.println("TestIngreso "+cuenta.getCuenta()+": "+cuenta.getSaldo());
         }catch(Exception e){
             System.out.println(e.getMessage());
             //fail("The test case is a prototype.");
@@ -111,7 +111,7 @@ public class CuentaTest {
         double ingreso = -100.0;
         try{
             cuenta.Ingreso(ingreso);
-            System.out.println("Ingreso "+cuenta.getCuenta()+": "+cuenta.getSaldo());
+            System.out.println("TestIngresar_Negativo "+cuenta.getCuenta()+": "+cuenta.getSaldo());
             //fail("The test case is a prototype.");
         }catch(Exception e){
             System.out.println("TestIngresar_Negativo: Nose puede ingresar cantidades negativas");
@@ -123,7 +123,7 @@ public class CuentaTest {
      */
     @Test
     public void testGetSaldo() {
-        System.out.println("getSaldo");
+        System.out.println("El saldo de la cuenta "+cuenta.getCuenta()+" es "+cuenta.getSaldo());
         double result = cuenta.getSaldo();
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -134,7 +134,7 @@ public class CuentaTest {
      */
     @Test
     public void testGetCuenta() {
-        System.out.println("getCuenta");
+        System.out.println("La cuenta es: "+cuenta.getCuenta());
         String expResult = "";
         String result = expResult;
         assertEquals(expResult, result);
