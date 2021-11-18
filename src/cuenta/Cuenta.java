@@ -14,23 +14,37 @@ public class Cuenta {
     private String nCuenta;
     
     public Cuenta(double saldo, String cuenta){
-        
+        this.saldo=saldo;
+        this.nCuenta=cuenta;
     }
     
-    public void Retirada(double retirada){
-        
+    public void Retirada(double retirada) throws Exception{
+        if(retirada<=0){
+            throw new Exception("No se puede retirar una cantidad Negativa");
+        }
+        else if(this.getSaldo()<retirada){
+            throw new Exception("Saldo insuficiente");
+        }
+        else{
+            saldo=saldo-retirada;
+        }
     }
     
-    public void Ingreso(double ingreso){
-        
+    public void Ingreso(double ingreso) throws Exception{
+        if(ingreso<=0){
+            throw new Exception("No se puede ingresar una cantidad negativa");
+        }
+        else{
+            saldo=saldo+ingreso;
+        }
     }
     
-    public int getSaldo(){
-        return 0;
+    public double getSaldo(){
+        return saldo;
     }
     
     public String getCuenta(){
-        return "0";
+        return nCuenta;
     }
     
 }
